@@ -37,5 +37,5 @@ jobs:
       with:
         name: linux
 
-    - name: File Test ${{ env.FILE_NAME }}
+    - name: File Testing ${{ env.FILE_NAME }}
       run: source ./test.sh
