@@ -7,4 +7,23 @@ on:
 jobs:
 
   archive-artifacts:
-    runs
+    runs-on: macos-latest
+    steps:
+    
+      - name: Step 1, Make downloads artifacts folder
+        run: mkdir artifacts-download
+        
+      - name: Step 2, Add artifacts to the folder
+        run: |
+          cd artifacts-download
+          echo 'ML-Ops' > mlops.html
+          echo 'hello'  > hello.html
+          cd ..
+          
+      - name: Step 3, upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts-archive
+          path: downloads
+        
+        
