@@ -10,12 +10,12 @@ jobs:
     runs-on: macos-latest
     steps:
     
-      - name: Step 1, Make downloads artifacts folder
-        run: mkdir artifacts-download
+      - name: Step 1, Make artifacts folder
+        run: mkdir artifacts
         
       - name: Step 2, Add artifacts to the folder
         run: |
-          cd artifacts-download
+          cd artifacts
           echo 'ML-Ops' > mlops.html
           echo 'hello'  > hello.html
           cd ..
@@ -24,6 +24,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifacts-archive
-          path: artifacts-download
+          path: artifacts
         
         
