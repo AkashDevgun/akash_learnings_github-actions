@@ -7,7 +7,7 @@ on:
 jobs:
 
   archive-artifacts:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     
       - name: Step 1, Make downloads artifacts folder
@@ -24,6 +24,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifacts-archive
-          path: downloads
+          path: .
         
         
