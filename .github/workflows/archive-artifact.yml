@@ -24,6 +24,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifacts-archive
-          path: files.zip
+          path: artifacts-download
         
         
