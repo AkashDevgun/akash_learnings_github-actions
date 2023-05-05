@@ -1,0 +1,17 @@
+name: Skipping workflow when pushing to main
+
+on:
+  push:
+    branches:
+    - main
+    
+jobs:
+  build:
+    name: Build
+    
+    runs-on: macos-latest
+    
+    steps:
+      - name: Build the code
+        run: |
+          echo "Build the Code"
