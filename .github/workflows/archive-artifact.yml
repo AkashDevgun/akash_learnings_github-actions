@@ -7,7 +7,7 @@ on:
 jobs:
 
   archive-artifacts:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     
       - name: Step 1, Make downloads artifacts folder
