@@ -1,0 +1,10 @@
+name: GitHub Actions Archive Artifact Example
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+
+  archive-artifacts:
+    runs
