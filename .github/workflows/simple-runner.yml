@@ -1,0 +1,48 @@
+# basic Workflow with 3 Envs with Self-hosted Runner
+
+name: Workflow with Three Envs with Self-hosted Runner
+
+on:
+  workflow_dispatch:
+
+    
+jobs:
+
+  Dev:
+    runs-on:
+      - self-hosted
+      - label-1
+    environment: DEV
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run a script
+        run: |
+          echo "Running Job in Dev Environment with Self-hosted Runner"
+          
+
+  Qa:
+    runs-on: macos-latest
+    environment: QA
+    needs: Dev 
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run a script
+        run: |
+          echo "Running Job in QA Environment with Self-hosted Runner"
+          
+  
+  NonProd:
+    runs-on: macos-latest
+    environment: NONPROD
+    needs: Qa
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run a script
+        run: |
+          echo "Running Job in NonProd Environment with Self-hosted Runner"
