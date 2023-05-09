@@ -1,0 +1,19 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      variable:
+        required: true
+        type: string
+        
+jobs:
+  Reusing-Workflow:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Output the Var
+        run: |
+          echo "Variable Value using: ${{ inputs.variable }}"
+    
