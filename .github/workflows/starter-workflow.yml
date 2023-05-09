@@ -5,3 +5,18 @@ on:
   
 jobs:
   Reusable:
+    runs-on: label-1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Multiline Script
+      - run: |
+          echo Add Actions
+          echo Test and Deploy
+          
+  call-workflow-local:
+    strategy:
+      matrix:
+        variables: [2, 4, 6, 8]
+    uses: ./.github/workflows/reusable-workflow-1.yml
+    with:
+      variable: ${{ matrix.variables }}
