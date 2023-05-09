@@ -1,0 +1,12 @@
+name: My Starter Workflow for Different Repo
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  call-workflow-release:
+    uses: AkashDevgun/demo-reusable.github/workflows/reusable-separate-repo.yml@v2
+  call-workflow-main:
+    uses: AkashDevgun/demo-reusable.github/workflows/reusable-separate-repo.yml@main
+  call-workflow-sha:
+    uses: AkashDevgun/demo-reusable.github/workflows/reusable-separate-repo.yml@b40de8c1d3d4c79bba9a2d069e1e06ca84b6023c
