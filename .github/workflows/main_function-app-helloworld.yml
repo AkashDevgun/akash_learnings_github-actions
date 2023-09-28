@@ -32,7 +32,9 @@ jobs:
           source venv/bin/activate
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          cd function-app-sample
+          pip install -r requirements.txt
         
       # Optional: Add step to run tests here
 
@@ -41,7 +43,7 @@ jobs:
         with:
           name: python-app
           path: |
-            . 
+            function-app-sample 
             !venv/
 
   deploy:
