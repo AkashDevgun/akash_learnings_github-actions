@@ -1,6 +1,9 @@
 name: data-flow-artifact
 
-on: [push]
+on:
+  # push:
+  #   branches: [ main ]
+    workflow_dispatch:
 
 env:
   FILE_NAME: hello-server

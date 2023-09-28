@@ -1,9 +1,9 @@
 name: Skipping workflow when pushing to main
 
 on:
-  push:
-    branches:
-    - main
+  # push:
+  #   branches: [ main ]
+    workflow_dispatch:
     
 jobs:
   build:
