@@ -1,0 +1,28 @@
+name: Github Action to Push hello world function App
+on:
+    pull_request:
+        branches:
+            - develop
+#  workflow_dispatch:
+
+jobs:
+  push-function-app:
+    name: Deploy Code
+    runs-on: ["self-hosted", "airflow", "X64"]
+    steps:
+        - name: Get latest code
+          uses: actions/checkout@v3
+
+        - name: Az CLI login
+          uses: azure/login@v1
+          with:
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+        - name: Deploy Function App
+          run: |
+            az functionapp deployment source config-zip --src ./function-app-sample --name $AZURE_FUNCTIONAPP_NAME --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }}
+          env:
+            AZURE_FUNCTIONAPP_NAME: ${{ secrets.AZURE_FUNCTIONAPP_NAME }}
+            AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
