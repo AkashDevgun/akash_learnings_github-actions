@@ -33,7 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd function-app
+          cd HttpFunction
           pip install -r requirements.txt
         
       # Optional: Add step to run tests here
@@ -43,7 +43,7 @@ jobs:
         with:
           name: python-app
           path: |
-            function-app
+            HttpFunction
             !venv/
 
   deploy:
